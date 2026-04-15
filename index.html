@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand - Ecommerce Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Top Header -->
+    <div class="top-header">
+        <div class="top-header-left">
+            <span>Hi, user let's get started</span>
+            <a href="#" class="join-now">Join now</a>
+        </div>
+        <div class="top-header-right">
+            <a href="#">Get US $10 off with a new supplier</a>
+            <a href="#">Send quotes with supplier preferences</a>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <div class="main-header">
+        <div class="logo">
+            <h1>Brand</h1>
+        </div>
+        <div class="search-bar">
+            <select id="categorySelect">
+                <option>All category</option>
+                <option>Gadgets</option>
+                <option>Clothes</option>
+                <option>Accessories</option>
+                <option>Electronics</option>
+            </select>
+            <input type="text" id="searchInput" placeholder="Search products...">
+            <button id="searchBtn">🔍</button>
+        </div>
+        <div class="header-icons">
+            <span class="icon" onclick="showPage('home')">🏠</span>
+            <span class="icon" onclick="showPage('wishlist')">❤️</span>
+            <span class="icon" onclick="showPage('cart')">🛒</span>
+            <span class="icon" onclick="showPage('account')">👤</span>
+        </div>
+    </div>
+
+    <!-- Category Navigation -->
+    <div class="category-nav">
+        <a href="#" onclick="showPage('home')">Home</a>
+        <a href="#" onclick="showPage('products')">Hot offers</a>
+        <a href="#" onclick="showPage('products')">Gift boxes</a>
+        <a href="#" onclick="showPage('products')">Projects</a>
+        <a href="#" onclick="showPage('products')">Menu item</a>
+        <a href="#" onclick="showPage('help')">Help</a>
+        <a href="#" onclick="showPage('products')">Automobiles</a>
+        <a href="#" onclick="showPage('products')">Clothes and wear</a>
+        <a href="#" onclick="showPage('products')">Home interiors</a>
+        <a href="#" onclick="showPage('products')">Computer and tech</a>
+        <a href="#" onclick="showPage('products')">Sports and outdoor</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Page Navigation -->
+        <div class="page-navigation">
+            <button class="page-btn active" onclick="showPage('home')">Home</button>
+            <button class="page-btn" onclick="showPage('cart')">Cart</button>
+            <button class="page-btn" onclick="showPage('detail')">Product Detail</button>
+            <button class="page-btn" onclick="showPage('itemlist')">Item List</button>
+            <button class="page-btn" onclick="showPage('grid')">Grid View</button>
+        </div>
+
+        <!-- Home Page -->
+        <div id="home" class="page-container active">
+            <div class="breadcrumb">
+                <a href="#" onclick="showPage('home')">Home</a> > All categories
+            </div>
+
+            <!-- Hero Section -->
+            <div class="hero-section">
+                <h2>Latest trending Electronic items</h2>
+                <button onclick="showPage('products')">Learn more</button>
+            </div>
+
+            <!-- Deals and Offers -->
+            <div class="deals-section">
+                <div class="deals-header">
+                    <h2>Deals and offers</h2>
+                    <div class="timer" id="timer">
+                        <div class="timer-item">
+                            <div class="timer-number" id="hours">13</div>
+                            <div class="timer-label">Hour</div>
+                        </div>
+                        <div class="timer-item">
+                            <div class="timer-number" id="minutes">34</div>
+                            <div class="timer-label">Min</div>
+                        </div>
+                        <div class="timer-item">
+                            <div class="timer-number" id="seconds">56</div>
+                            <div class="timer-label">Sec</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-grid" id="dealsGrid"></div>
+            </div>
+
+            <!-- Category Showcase -->
+            <div class="category-showcase">
+                <div class="showcase-item">
+                    <span class="showcase-icon"><img src="assets\Image\interior\8.png" alt="8.png"></span>
+                    <h3>Home and outdoor</h3>
+                    <!-- <p onclick="showPage('products')">Source now →</p> -->
+                     <button class="inquiry-btn" onclick="showPage('inquiry')">Send inquiry</button>
+                </div>
+                <div class="showcase-item">
+                    <span class="showcase-icon"><img src="assets\Image\interior\9.png" alt="9.png"></span>
+                    <h3>Consumer electronics and gadgets</h3>
+                    <!-- <p onclick="showPage('products')">Source now →</p> -->
+                     <button class="inquiry-btn" onclick="showPage('inquiry')">Send inquiry</button>
+                </div>
+                <div class="showcase-item">
+                    <span class="showcase-icon"><img src="assets\Image\interior\1.png" alt="1.png"></span>
+                    <h3>An easy way to send requests to all suppliers</h3>
+                    <!-- <p onclick="showPage('products')">Source now →</p> -->
+                    <button class="inquiry-btn" onclick="showPage('inquiry')">Send inquiry</button>
+                </div>
+            </div>
+
+            <!-- Recommended Items -->
+            <div class="deals-section">
+                <h2 class="section-title">Recommended items</h2>
+                <div class="product-grid" id="recommendedGrid"></div>
+            </div>
+
+            <!-- Our Extra Services -->
+            <div class="deals-section">
+                <h2 class="section-title">Our extra services</h2>
+                <div class="product-grid" id="servicesGrid"></div>
+            </div>
+
+            <!-- Suppliers by region -->
+            <div class="suppliers-section">
+                <h3>Suppliers by region</h3>
+                <div class="suppliers-grid" id="suppliersGrid"></div>
+            </div>
+        </div>
+
+        <!-- Cart Page -->
+        <div id="cart" class="page-container">
+            <div class="breadcrumb">
+                <a href="#" onclick="showPage('home')">Home</a> > <a href="#" onclick="showPage('cart')">Cart</a>
+            </div>
+
+            <div class="cart-container" id="cartContainer"></div>
+            <div class="saved-items" id="savedItems"></div>
+        </div>
+
+        <!-- Product Detail Page -->
+        <div id="detail" class="page-container">
+            <div class="breadcrumb">
+                <a href="#" onclick="showPage('home')">Home</a> > <a href="#" onclick="showPage('products')">Clothing</a> > <a href="#" onclick="showPage('products')">Men's wear</a> > Summer clothing
+            </div>
+
+            <div class="product-detail" id="productDetail"></div>
+            <div class="related-products">
+                <h2 class="section-title">You may like</h2>
+                <div class="related-grid" id="relatedGrid"></div>
+            </div>
+        </div>
+
+        <!-- Item List Page -->
+        <div id="itemlist" class="page-container">
+            <div class="breadcrumb">
+                <a href="#" onclick="showPage('home')">Home</a> > <a href="#" onclick="showPage('products')">Category</a> > Regular Fit Resort Shirt
+            </div>
+
+            <div class="itemlist-container">
+                <table class="itemlist-table" id="itemlistTable"></table>
+            </div>
+        </div>
+
+        <!-- Grid View Page -->
+        <div id="grid" class="page-container">
+            <div class="breadcrumb">
+                <a href="#" onclick="showPage('home')">Home</a> > <a href="#" onclick="showPage('products')">Clothings</a> > <a href="#" onclick="showPage('products')">Men's wear</a> > Summer clothing
+            </div>
+
+            <div class="two-column">
+                <div class="sidebar" id="sidebar"></div>
+                <div class="grid-content" id="gridContent"></div>
+            </div>
+        </div>
+
+        <!-- Wishlist Page -->
+        <div id="wishlist" class="page-container">
+            <div class="breadcrumb">
+                <a href="#" onclick="showPage('home')">Home</a> > Wishlist
+            </div>
+            <div class="wishlist-container" id="wishlistContainer"></div>
+        </div>
+
+        <!-- Account Page -->
+        <div id="account" class="page-container">
+            <div class="breadcrumb">
+                <a href="#" onclick="showPage('home')">Home</a> > My Account
+            </div>
+            <div class="account-container" id="accountContainer"></div>
+        </div>
+
+        <!-- Products Page -->
+        <div id="products" class="page-container">
+            <div class="breadcrumb">
+                <a href="#" onclick="showPage('home')">Home</a> > Products
+            </div>
+            <div class="products-container" id="productsContainer"></div>
+        </div>
+
+        <!-- Help Page -->
+        <div id="help" class="page-container">
+            <div class="breadcrumb">
+                <a href="#" onclick="showPage('home')">Home</a> > Help Center
+            </div>
+            <div class="help-container" id="helpContainer"></div>
+        </div>
+
+        <!-- Inquiry Page -->
+        <div id="inquiry" class="page-container">
+            <div class="breadcrumb">
+                <a href="#" onclick="showPage('home')">Home</a> > Send Inquiry
+            </div>
+            <div class="inquiry-container" id="inquiryContainer"></div>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="newsletter">
+            <h3>Subscribe on our newsletter</h3>
+            <p>Get daily news on upcoming offers from many suppliers all over the world</p>
+            <div class="newsletter-form">
+                <input type="email" id="newsletterEmail" placeholder="Email">
+                <button onclick="subscribeNewsletter()">Subscribe</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Brand</h4>
+                <p>Best information about the company gles here but now lorem ipsum is</p>
+            </div>
+            <div class="footer-section">
+                <h4>About</h4>
+                <ul>
+                    <li><a href="#" onclick="showPage('about')">About Us</a></li>
+                    <li><a href="#" onclick="showPage('products')">Find store</a></li>
+                    <li><a href="#" onclick="showPage('products')">Categories</a></li>
+                    <li><a href="#" onclick="showPage('blogs')">Blogs</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Partnership</h4>
+                <ul>
+                    <li><a href="#" onclick="showPage('about')">About Us</a></li>
+                    <li><a href="#" onclick="showPage('products')">Find store</a></li>
+                    <li><a href="#" onclick="showPage('products')">Categories</a></li>
+                    <li><a href="#" onclick="showPage('blogs')">Blogs</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Information</h4>
+                <ul>
+                    <li><a href="#" onclick="showPage('help')">Help Center</a></li>
+                    <li><a href="#" onclick="showPage('refund')">Money Refund</a></li>
+                    <li><a href="#" onclick="showPage('shipping')">Shipping</a></li>
+                    <li><a href="#" onclick="showPage('contact')">Contact us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>For users</h4>
+                <ul>
+                    <li><a href="#" onclick="showPage('account')">Login</a></li>
+                    <li><a href="#" onclick="showPage('account')">Register</a></li>
+                    <li><a href="#" onclick="showPage('account')">Settings</a></li>
+                    <li><a href="#" onclick="showPage('account')">My Orders</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2026 Ecommerce | Develop By Muhammad Zohaib Hamid
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
